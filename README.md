@@ -3,178 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZAWAYA | Advanced Corporate Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;700;900&family=Noto+Sans+Arabic:wght@100;400;700;900&display=swap" rel="stylesheet">
+    <title>زوايا البيان | إبداع يتجاوز الحدود</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary: #000000;
-            --accent: #c5a059;
-            --surface: #0a0a0a;
-            --text-dim: #888;
-            --transition: 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+            --primary: #D4AF37; 
+            --primary-light: #f1d279;
+            --black: #0a0a0a;
+            --dark: #121212;
+            --gray-dark: #1e1e1e;
+            --gray-light: #f8f9fa;
+            --white: #ffffff;
+            --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--primary); color: #fff; font-family: 'Noto Sans Arabic', sans-serif; overflow-x: hidden; }
-
-        /* Navigation - القائمة العلوية */
-        nav {
-            position: fixed; top: 0; width: 100%; padding: 40px 6%;
-            display: flex; justify-content: space-between; align-items: center; z-index: 2000;
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            scroll-behavior: smooth;
         }
-        .logo { font-family: 'Inter'; font-weight: 900; letter-spacing: 5px; cursor: pointer; font-size: 1.5rem; }
-        .nav-menu { display: flex; gap: 40px; }
-        .nav-menu div { 
-            font-family: 'Inter'; font-size: 0.8rem; letter-spacing: 2px; 
-            cursor: pointer; transition: 0.3s; position: relative;
+
+        body { background-color: var(--white); color: var(--black); overflow-x: hidden; }
+
+        header {
+            background: rgba(10, 10, 10, 0.98);
+            height: 90px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 9999;
+            border-bottom: 2px solid var(--primary);
+            backdrop-filter: blur(15px);
         }
-        .nav-menu div:hover { color: var(--accent); }
 
-        /* View Controller - التحكم في الصفحات */
-        .page-view {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            padding: 160px 8% 80px; background: var(--primary);
-            opacity: 0; pointer-events: none; transform: translateY(30px);
-            transition: var(--transition); overflow-y: auto;
+        .logo-container h1 { color: var(--primary); font-size: 26px; font-weight: 900; }
+        .logo-container span { color: var(--white); font-size: 10px; text-transform: uppercase; letter-spacing: 3px; }
+
+        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav ul li a {
+            color: var(--white); text-decoration: none; font-weight: 600;
+            transition: var(--transition-smooth); position: relative;
         }
-        .page-view.active { opacity: 1; pointer-events: all; transform: translateY(0); }
+        nav ul li a:hover { color: var(--primary); }
 
-        /* Home View Content */
-        .hero-title { font-size: clamp(3rem, 12vw, 9rem); font-weight: 900; line-height: 0.85; margin-bottom: 30px; }
-        .hero-desc { font-size: 1.5rem; max-width: 600px; color: var(--text-dim); margin-bottom: 50px; }
-
-        /* About Page Details - صفحة من نحن التفصيلية */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-top: 50px; }
-        .about-text h2 { font-size: 4rem; color: var(--accent); margin-bottom: 30px; }
-        .about-text p { font-size: 1.4rem; line-height: 1.8; color: #ccc; }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .stat-card { background: var(--surface); padding: 40px; border-top: 2px solid var(--accent); }
-        .stat-card h4 { font-size: 2.5rem; margin-bottom: 10px; font-family: 'Inter'; }
-
-        /* Services Grid */
-        .services-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #222; margin-top: 50px; }
-        .service-box { background: var(--primary); padding: 60px 40px; transition: 0.4s; cursor: pointer; }
-        .service-box:hover { background: var(--surface); }
-        .service-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
-        .service-box p { color: var(--text-dim); font-size: 1rem; }
-
-        /* Global Ticker */
-        .ticker-footer {
-            position: fixed; bottom: 0; width: 100%; background: #fff; color: #000;
-            padding: 15px 0; font-family: 'Inter'; font-weight: 900; z-index: 1500;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), radial-gradient(circle, #2c2c2c 0%, #000 100%);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white); padding: 0 8%;
         }
-        .ticker-text { display: inline-block; white-space: nowrap; animation: ticker 40s linear infinite; }
-        @keyframes ticker { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        .hero-content h3 { font-size: 4rem; line-height: 1.2; margin-bottom: 30px; }
+        .hero-content h3 span { color: var(--primary); }
 
-        /* Detail Panels */
-        .panel { padding: 40px; background: var(--surface); margin-top: 20px; border-radius: 5px; }
+        /* Stats Bar - تم حذف سنوات الخبرة */
+        .stats-bar {
+            background: var(--black);
+            padding: 60px 8%;
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            color: var(--white);
+            border-top: 3px solid var(--primary);
+        }
+        .stat-card { text-align: center; }
+        .stat-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+        .stat-card h5 { font-size: 2.2rem; margin-bottom: 5px; }
 
+        /* About Section */
+        .about-section { padding: 120px 8%; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 350px; }
+        .about-text h2 { font-size: 2.8rem; margin-bottom: 25px; }
+        .about-image-frame { flex: 1; min-width: 350px; height: 500px; }
+        .main-img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 20px 20px 0px var(--primary); }
+
+        /* Works Section - 8 Photos Grid */
+        .works-section { padding: 100px 8%; background-color: var(--gray-light); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .work-item {
+            height: 350px; border-radius: 15px; overflow: hidden;
+            position: relative; background: var(--dark);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .work-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .work-item:hover img { transform: scale(1.1); }
+
+        /* Footer */
+        footer { background: var(--black); color: var(--white); padding: 80px 8% 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .contact-link { display: block; color: #ccc; text-decoration: none; margin-bottom: 15px; direction: ltr; }
+        .contact-link:hover { color: var(--primary); transform: translateX(-10px); }
+
+        @media (max-width: 768px) {
+            .hero-content h3 { font-size: 2.5rem; }
+            .stats-bar { gap: 40px; }
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo" onclick="openPage('home-view')">ZAWAYA</div>
-        <div class="nav-menu">
-            <div onclick="openPage('about-view')">ABOUT US</div>
-            <div onclick="openPage('services-view')">OUR EXPERTISE</div>
-            <div onclick="openPage('clients-view')">PARTNERS</div>
+    <header>
+        <div class="logo-container">
+            <h1>زوايا البيان</h1>
+            <span>Zawaya Al-Bayan</span>
         </div>
-    </nav>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#works">معرض الأعمال</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <main id="home-view" class="page-view active">
-        <h1 class="hero-title">NOT JUST<br>BOOTHS.</h1>
-        <p class="hero-desc">Every angle tells a story. We transform your brand vision into immersive physical experiences.</p>
-        <div class="service-box" style="display:inline-block" onclick="openPage('services-view')">EXPLORE SERVICES →</div>
-    </main>
-
-    <section id="about-view" class="page-view">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>نحن نصنع<br>المستقبل البصري</h2>
-                <p>
-                    مؤسسة "زوايا البيان" ليست مجرد شركة دعاية وإعلان، بل هي مختبر للإبداع. منذ انطلاقنا، وضعنا نصب أعيننا دمج التكنولوجيا الحديثة مع الفن المعماري لإنشاء منصات عرض ومعارض عالمية.
-                </p>
-                <br>
-                <p>نؤمن بأن الجودة تبدأ من أدق التفاصيل في التصميم وتستمر حتى اللحظات الأخيرة من التنفيذ.</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-card"><h4>12+</h4><p>خدمة متكاملة</p></div>
-                <div class="stat-card"><h4>100%</h4><p>حلول جاهزة (Turnkey)</p></div>
-                <div class="stat-card"><h4>Elite</h4><p>قائمة عملائنا</p></div>
-                <div class="stat-card"><h4>HQ</h4><p>الرياض، السعودية</p></div>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h3>لسنا مجرد منصات عرض،<br>بل نحن <span>صنّاع تجربة.</span></h3>
+            <div style="margin-top: 40px;">
+                <a href="#works" style="background:var(--primary); color:var(--black); padding:15px 40px; border-radius:30px; text-decoration:none; font-weight:bold;">استكشف أعمالنا</a>
             </div>
         </div>
     </section>
 
-    <section id="services-view" class="page-view">
-        <h2 style="font-size: 3rem; margin-bottom: 40px;">خبراتنا الفنية</h2>
-        <div class="services-container">
-            <div class="service-box">
-                <h3>01. المعارض (Exhibitions)</h3>
-                <p>تصميم وتنفيذ أجنحة المعارض الدولية بأحدث الخامات والتقنيات.</p>
-            </div>
-            <div class="service-box">
-                <h3>02. الديكور (Decoration)</h3>
-                <p>حلول هندسية للمساحات الداخلية، تشمل الأكريليك والخشب والمنصات.</p>
-            </div>
-            <div class="service-box">
-                <h3>03. الإنتاج الرقمي</h3>
-                <p>شاشات LCD، لوحات إرشادية (Signage)، وطباعة رقمية فاخرة.</p>
-            </div>
-            <div class="service-box">
-                <h3>04. الهدايا والفعاليات</h3>
-                <p>تنظيم كامل للفعاليات وتوفير الهدايا الدعائية الفاخرة.</p>
-            </div>
-            <div class="service-box">
-                <h3>05. حلول اللوحات</h3>
-                <p>تصنيع الـ Banner والـ Roll-up والـ Sticker بأعلى دقة طباعة.</p>
-            </div>
-            <div class="service-box">
-                <h3>06. الاستشارات</h3>
-                <p>تقديم حلول جاهزة (Turnkey Solutions) تبدأ من الفكرة حتى التسليم.</p>
-            </div>
+    <div class="stats-bar">
+        <div class="stat-card">
+            <i class="fas fa-project-diagram"></i>
+            <h5>+150</h5>
+            <p>مشروع منجز</p>
         </div>
-    </section>
-
-    <section id="clients-view" class="page-view">
-        <h2 style="font-size: 4rem; color: var(--accent); margin-bottom: 50px;">شركاء النجاح</h2>
-        <div class="about-text" style="max-width: 800px;">
-            <p>نفخر بالعمل مع نخبة من الجهات الحكومية والشركات العالمية التي وضعت ثقتها في زوايا البيان:</p>
-            <div class="panel">
-                <ul style="list-style: none; font-size: 1.5rem; line-height: 2.5;">
-                    <li>● وزارة الاستثمار (Ministry of Investment)</li>
-                    <li>● شركة CIPHER للأمن الرقمي</li>
-                    <li>● شركة FLOWSERVE العالمية</li>
-                    <li>● شركة لونا (Luna)</li>
-                    <li>● شركة SASC</li>
-                    <li>● بخور دخون (Dkhoon)</li>
-                    <li>● شركة آل منيف</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <div class="ticker-footer">
-        <div class="ticker-text">
-            ZAWAYA AL-BAYAN • QUALITY IN EVERY ANGLE • NOT JUST BOOTHS • INNOVATION • ZAWAYA AL-BAYAN • QUALITY IN EVERY ANGLE •&nbsp;
+        <div class="stat-card">
+            <i class="fas fa-smile"></i>
+            <h5>100%</h5>
+            <p>رضا العملاء</p>
         </div>
     </div>
 
-    <script>
-        // وظيفة التنقل السلس بين الصفحات
-        function openPage(pageId) {
-            // إخفاء كل الصفحات أولاً
-            document.querySelectorAll('.page-view').forEach(page => {
-                page.classList.remove('active');
-            });
-            // إظهار الصفحة المختارة
-            document.getElementById(pageId).classList.add('active');
-            
-            // تحديث رابط الـ URL شكلياً (اختياري)
-            window.scrollTo(0, 0);
-        }
-    </script>
+    <section class="about-section" id="about">
+        <div class="about-text">
+            <h2>نحول المساحات الصامتة <br><span style="color:var(--primary)">إلى منصات تنبض بالحياة</span></h2>
+            <p>مؤسسة زوايا البيان للدعاية والإعلان هي شريككم الإبداعي في الرياض، متخصصون في تجهيز المعارض والفعاليات والحلول الإعلانية المبتكرة التي تجعل علامتكم التجارية تبرز في كل زاوية.</p>
+        </div>
+        <div class="about-image-frame">
+            <img src="67.JPEG" class="main-img" alt="عن زوايا البيان">
+        </div>
+    </section>
 
+    <section class="works-section" id="works">
+        <div class="section-header">
+            <h2>معرض <span>أعمالنا</span></h2>
+            <p>نستعرض لكم 8 من أبرز مشاريعنا المتميزة</p>
+        </div>
+
+        <div class="works-grid">
+            <div class="work-item"><img src="9.JPEG" alt="مشروع 9"></div>
+            <div class="work-item"><img src="8.JPEG" alt="مشروع 8"></div>
+            <div class="work-item"><img src="11.JPEG" alt="مشروع 11"></div>
+            <div class="work-item"><img src="10.JPEG" alt="مشروع 10"></div>
+            <div class="work-item"><img src="76.JPEG" alt="مشروع 76"></div>
+            <div class="work-item"><img src="677.JPEG" alt="مشروع 677"></div>
+            <div class="work-item"><img src="67.JPEG" alt="مشروع 67"></div>
+            <div class="work-item"><img src="12.jpeg" alt="مشروع 12"></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>زوايا البيان</h3>
+                <p style="color:#aaa;">جودة في التنفيذ، سرعة في الإنجاز، وإبداع بلا حدود.</p>
+            </div>
+            <div class="footer-col">
+                <h3>اتصل بنا</h3>
+                <a href="tel:+966559792737" class="contact-link">+966 55 979 2737 <i class="fas fa-phone"></i></a>
+                <a href="tel:+966538653944" class="contact-link">+966 53 865 3944 <i class="fas fa-phone"></i></a>
+                <a href="tel:+966573638730" class="contact-link">+966 57 363 8730 <i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+        <div style="text-align:center; padding-top:40px; border-top:1px solid #222; margin-top:40px; color:#666;">
+            &copy; 2024 مؤسسة زوايا البيان للدعاية والإعلان - جميع الحقوق محفوظة
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            header.style.background = window.scrollY > 50 ? 'rgba(0,0,0,1)' : 'rgba(10,10,10,0.98)';
+        });
+    </script>
 </body>
 </html>
