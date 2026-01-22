@@ -1,11 +1,15 @@
-0<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>زوايا البيان | إبداع يتجاوز الحدود</title>
+    
+    <title>زوايا البيان | إبداع يتجاوز الحدود لتجهيز المعارض</title>
+    <meta name="description" content="مؤسسة زوايا البيان للدعاية والإعلان بالرياض - خبراء في تجهيز المعارض والفعاليات والحلول الإعلانية المبتكرة.">
+    <meta name="keywords" content="زوايا البيان, تجهيز معارض الرياض, دعاية وإعلان السعودية, تصميم أجنحة معارض, Zawaya Al-Bayan">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>0
+    <style>
         :root {
             --primary: #D4AF37; 
             --primary-light: #f1d279;
@@ -60,7 +64,7 @@
         .hero-content h3 { font-size: 4rem; line-height: 1.2; margin-bottom: 30px; }
         .hero-content h3 span { color: var(--primary); }
 
-        /* Stats Bar - تم حذف سنوات الخبرة */
+        /* Stats Bar */
         .stats-bar {
             background: var(--black);
             padding: 60px 8%;
@@ -81,7 +85,7 @@
         .about-image-frame { flex: 1; min-width: 350px; height: 500px; }
         .main-img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 20px 20px 0px var(--primary); }
 
-        /* Works Section - 8 Photos Grid */
+        /* Works Section */
         .works-section { padding: 100px 8%; background-color: var(--gray-light); }
         .section-header { text-align: center; margin-bottom: 60px; }
         .works-grid {
@@ -105,7 +109,7 @@
 
         @media (max-width: 768px) {
             .hero-content h3 { font-size: 2.5rem; }
-            .stats-bar { gap: 40px; }
+            .stats-bar { gap: 40px; flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -161,7 +165,7 @@
     <section class="works-section" id="works">
         <div class="section-header">
             <h2>معرض <span>أعمالنا</span></h2>
-            <p>ابداع يتجاوز الحدود...شاهد ملامح من رحلتنا</p>
+            <p>حيث تلتقي الدقة بالإبداع.. جولة بين أبرز بصماتنا في عالم التجهيز.</p>
         </div>
 
         <div class="works-grid">
